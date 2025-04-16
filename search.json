@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html#sommaire",
+    "href": "index.html#sommaire",
+    "title": "Meta-Analyses de Donnees Cochrane",
+    "section": "Sommaire",
+    "text": "Sommaire\n\n\nIntroduction\nChargement des librairies / packages et des données\nSélection des méta-analyses avec RR ou OR\nReproduction de 10 méta-analyses avec metagen\nComparaison graphique des résultats reproduits\nConclusion"
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Meta-Analyses de Donnees Cochrane",
+    "section": "Introduction",
+    "text": "Introduction\nCe site présente la reproduction et l’analyse de méta-analyses à partir de données cliniques issues de la base Cochrane. L’objectif est d’évaluer la reproductibilité des effets globaux, d’explorer l’hétérogénéité et de comparer les intervalles de confiance obtenus par différentes méthodes.\n\nTous les résultats, codes et graphiques sont accessibles, interactifs, et enrichis par un sommaire dynamique."
+  },
+  {
+    "objectID": "index.html#comparaison-graphique-des-résultats-reproduits",
+    "href": "index.html#comparaison-graphique-des-résultats-reproduits",
+    "title": "Meta-Analyses de Donnees Cochrane",
+    "section": "Comparaison graphique des résultats reproduits",
+    "text": "Comparaison graphique des résultats reproduits\nLes figures suivantes comparent les résultats extraits de la base officielle aux résultats que nous avons reproduits pour 10 méta-analyses (via metagen).\nChaque point représente une méta-analyse.\n- L’axe X contient la valeur originale (officielle), - L’axe Y contient la valeur reproduite. - La ligne pointillée représente une égalité parfaite\n\n\nCode\nlibrary(ggplot2)\n\n\nggplot(comparaisons, aes(x = Mean_original, y = Mean_reproduit)) +\n  geom_point() +\n  geom_abline(slope = 1, intercept = 0, linetype = \"dashed\", color = \"plum\") +\n  labs(\n    title = \"Comparaison de l'effet global (Mean)\",\n    x = \"Valeur originale (log)\",\n    y = \"Valeur reproduite (log)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(comparaisons, aes(x = CI_lower_original, y = CI_lower_reproduit)) +\n  geom_point() +\n  geom_abline(slope = 1, intercept = 0, linetype = \"dashed\", color = \"cyan4\") +\n  labs(\n    title = \"Comparaison borne inférieure IC 95%\",\n    x = \"Valeur originale (log)\",\n    y = \"Valeur reproduite (log)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(comparaisons, aes(x = CI_upper_original, y = CI_upper_reproduit)) +\n  geom_point() +\n  geom_abline(slope = 1, intercept = 0, linetype = \"dashed\", color = \"darkorchid\") +\n  labs(\n    title = \"Comparaison borne supérieure IC 95%\",\n    x = \"Valeur originale (log)\",\n    y = \"Valeur reproduite (log)\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(comparaisons, aes(x = I2_original, y = I2_reproduit)) +\n  geom_point() +\n  geom_abline(slope = 1, intercept = 0, linetype = \"dashed\", color = \"deepskyblue4\") +\n  labs(\n    title = \"Comparaison de I² (hétérogénéité)\",\n    x = \"I² original\",\n    y = \"I² reproduit\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "index.html#conclusion",
+    "href": "index.html#conclusion",
+    "title": "Meta-Analyses de Donnees Cochrane",
+    "section": "Conclusion",
+    "text": "Conclusion\nLa reproduction automatique de plusieurs méta-analyses à partir des données Cochrane a montré une bonne concordance sur les principaux indicateurs (effet global, intervalles de confiance, hétérogénéité)."
+  }
+]

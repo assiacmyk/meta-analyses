@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Assia Aouimeur">
+<meta name="dcterms.date" content="2025-04-14">
+
+<title>Tableau de bord des méta-analyses</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Tableau de bord des méta-analyses</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/assiacmyk"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="./#"> <i class="bi bi-moon-stars" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Meta-Analyses de Donnees Cochrane</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2025-04-14</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<hr>
+<section id="meta-analyses-de-données-cliniques" class="level1 hero center" style="background-color:#3498db; color:white; padding:4em 2em; text-align:center; border-radius:10px;">
+<h1><strong>Meta-Analyses de Données Cliniques</strong></h1>
+<section id="exploration-de-résultats-issus-de-la-base-cochrane" class="level3">
+<h3 class="anchored" data-anchor-id="exploration-de-résultats-issus-de-la-base-cochrane"><strong>Exploration de résultats issus de la base Cochrane</strong></h3>
+<section id="analyse-comparative-reproductibilité-et-visualisation-des-effets-globaux" class="level4">
+<h4 class="anchored" data-anchor-id="analyse-comparative-reproductibilité-et-visualisation-des-effets-globaux">Analyse comparative, reproductibilité et visualisation des effets globaux</h4>
+</section>
+</section>
+</section>
+<section id="sommaire" class="level2">
+<h2 class="anchored" data-anchor-id="sommaire">Sommaire</h2>
+<div class="toc-style">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#chargement-des-librairies--packages-et-des-donnees">Chargement des librairies / packages et des données</a></li>
+<li><a href="#sélection-des-méta-analyses-avec-rr-ou-or">Sélection des méta-analyses avec RR ou OR</a></li>
+<li><a href="#reproduction-de-10-méta-analyses-avec-metagen">Reproduction de 10 méta-analyses avec metagen</a></li>
+<li><a href="#comparaison-graphique-des-résultats-reproduits">Comparaison graphique des résultats reproduits</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><em>Ce site présente la reproduction et l’analyse de méta-analyses à partir de données cliniques issues de la base Cochrane. L’objectif est d’évaluer la reproductibilité des effets globaux, d’explorer l’hétérogénéité et de comparer les intervalles de confiance obtenus par différentes méthodes.</em></p>
+<blockquote class="blockquote">
+<p>Tous les résultats, codes et graphiques sont accessibles, interactifs, et enrichis par un sommaire dynamique.</p>
+</blockquote>
+<hr>
+</section>
+<section id="chargement-des-librairies-packages-et-des-données" class="level1">
+<h1>Chargement des librairies / packages et des données</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('meta')</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('metafor')</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('tidyverse')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(meta)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metafor)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>overall <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/Aouimeur/Downloads/overall-estimates-and-settings.csv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data_rows <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/Aouimeur/Downloads/data-rows.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(overall)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Analysis.group"                "Analysis.number"              
+ [3] "Analysis.name"                 "Analysis.group.name"          
+ [5] "Data.source"                   "Data.source.eligibility"      
+ [7] "Data.type"                     "Log.scale.data"               
+ [9] "Outcome"                       "Intervention.grouping"        
+[11] "Experimental.intervention"     "Control.intervention"         
+[13] "Subgroup.by"                   "Filter.criteria"              
+[15] "Experimental.group.label"      "Control.group.label"          
+[17] "Statistical.method"            "Effect.measure"               
+[19] "Unit.of.effect.measure"        "Analysis.model"               
+[21] "Subgroup.estimates"            "Overall.estimates"            
+[23] "Test.for.subgroup.differences" "Swap.event.and.non.event"     
+[25] "Study.CI"                      "Estimate.CI"                  
+[27] "Experimental.cases"            "Experimental.N"               
+[29] "Control.cases"                 "Control.N"                    
+[31] "Mean"                          "CI.start"                     
+[33] "CI.end"                        "Heterogeneity.Tau."           
+[35] "Heterogeneity.Chi."            "Heterogeneity.df"             
+[37] "Heterogeneity.P"               "Heterogeneity.I."             
+[39] "Effect.Z"                      "Effect.P"                     
+[41] "Subgroup.Chi."                 "Subgroup.df"                  
+[43] "Subgroup.P"                    "Subgroup.I."                  
+[45] "ID"                            "cochrane_IDs"                 
+[47] "Heterogeneity.estimator"       "CI.method"                    
+[49] "CI.level"                      "PI.start"                     
+[51] "PI.end"                        "Tau..CI.start"                
+[53] "Tau..CI.end"                   "Tau..CI"                      
+[55] "Prediction.interval"           "CI.PI.level"                  
+[57] "Effect.T"                     </code></pre>
+</div>
+</div>
+</section>
+<section id="sélection-des-méta-analyses-avec-rr-ou-or" class="level1">
+<h1>Sélection des méta-analyses avec RR ou OR</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>overall_filtered <span class="ot">&lt;-</span> overall <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Effect.measure <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Risk Ratio"</span>, <span class="st">"Odds Ratio"</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(overall_filtered, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Analysis.group Analysis.number
+1              1               1
+2              1               2
+3              1               3
+4              1               4
+5              1               5
+                                                 Analysis.name
+1                                            Smoking cessation
+2 Smoking cessation - subgroup by level of behavioural support
+3      Smoking cessation - subgroup by mental health disorders
+4                                               Adverse events
+5                                   Psychiatric adverse events
+                                    Analysis.group.name  Data.source
+1 Bupropion versus placebo/no pharmacological treatment Custom input
+2 Bupropion versus placebo/no pharmacological treatment Custom input
+3 Bupropion versus placebo/no pharmacological treatment Custom input
+4 Bupropion versus placebo/no pharmacological treatment Custom input
+5 Bupropion versus placebo/no pharmacological treatment Custom input
+  Data.source.eligibility   Data.type Log.scale.data Outcome
+1                    #N/A Dichotomous           TRUE    &lt;NA&gt;
+2                    #N/A Dichotomous           TRUE    &lt;NA&gt;
+3                    #N/A Dichotomous           TRUE    &lt;NA&gt;
+4                    #N/A Dichotomous           TRUE    &lt;NA&gt;
+5                    #N/A Dichotomous           TRUE    &lt;NA&gt;
+  Intervention.grouping Experimental.intervention Control.intervention
+1                  &lt;NA&gt;                      &lt;NA&gt;                 &lt;NA&gt;
+2                  &lt;NA&gt;                      &lt;NA&gt;                 &lt;NA&gt;
+3                  &lt;NA&gt;                      &lt;NA&gt;                 &lt;NA&gt;
+4                  &lt;NA&gt;                      &lt;NA&gt;                 &lt;NA&gt;
+5                  &lt;NA&gt;                      &lt;NA&gt;                 &lt;NA&gt;
+  Subgroup.by Filter.criteria Experimental.group.label Control.group.label
+1        &lt;NA&gt;            &lt;NA&gt;                     &lt;NA&gt;                &lt;NA&gt;
+2        &lt;NA&gt;            &lt;NA&gt;                     &lt;NA&gt;                &lt;NA&gt;
+3        &lt;NA&gt;            &lt;NA&gt;                     &lt;NA&gt;                &lt;NA&gt;
+4        &lt;NA&gt;            &lt;NA&gt;                     &lt;NA&gt;                &lt;NA&gt;
+5        &lt;NA&gt;            &lt;NA&gt;                     &lt;NA&gt;                &lt;NA&gt;
+  Statistical.method Effect.measure Unit.of.effect.measure Analysis.model
+1                 MH     Risk Ratio                   &lt;NA&gt;   Fixed effect
+2                 MH     Risk Ratio                   &lt;NA&gt;   Fixed effect
+3                 MH     Risk Ratio                   &lt;NA&gt;   Fixed effect
+4                 MH     Risk Ratio                   &lt;NA&gt;   Fixed effect
+5                 MH     Risk Ratio                   &lt;NA&gt;   Fixed effect
+  Subgroup.estimates Overall.estimates Test.for.subgroup.differences
+1               TRUE              TRUE                          TRUE
+2               TRUE              TRUE                          TRUE
+3               TRUE              TRUE                          TRUE
+4               TRUE              TRUE                          TRUE
+5               TRUE              TRUE                          TRUE
+  Swap.event.and.non.event Study.CI Estimate.CI Experimental.cases
+1                    FALSE      95%         95%               1949
+2                    FALSE      95%         95%               1948
+3                    FALSE      95%         95%               1948
+4                    FALSE      95%         95%               3930
+5                    FALSE      95%         95%                792
+  Experimental.N Control.cases Control.N     Mean CI.start   CI.end
+1          10000          1015      8577 1.604001 1.494176 1.721898
+2           9978          1008      8520 1.608592 1.498349 1.726946
+3           9978          1008      8520 1.608996 1.498750 1.727352
+4           5997          2837      4934 1.143482 1.110676 1.177256
+5           2238           637      2256 1.248697 1.147567 1.358738
+  Heterogeneity.Tau. Heterogeneity.Chi. Heterogeneity.df Heterogeneity.P
+1                 NA          59.611975               50        0.165667
+2                 NA          57.741185               49        0.183577
+3                 NA          57.686483               49        0.184896
+4                 NA          55.405712               21        0.000062
+5                 NA           9.146717                8        0.330071
+  Heterogeneity.I.  Effect.Z Effect.P Subgroup.Chi. Subgroup.df Subgroup.P
+1         16.12423 13.057031        0            NA          NA         NA
+2         15.13856 13.123194        0      2.757412           3   0.430559
+3         15.05809 13.133133        0      0.104514           1   0.746479
+4         62.09777  9.027859        0            NA          NA         NA
+5         12.53693  5.154271        0            NA          NA         NA
+  Subgroup.I.                          ID  cochrane_IDs Heterogeneity.estimator
+1          NA analysis:415898169568468224 CD000031.pub6                    &lt;NA&gt;
+2           0 analysis:415898169568468272 CD000031.pub6                    &lt;NA&gt;
+3           0 analysis:415898169568468324 CD000031.pub6                    &lt;NA&gt;
+4          NA analysis:439363637388321776 CD000031.pub6                    &lt;NA&gt;
+5          NA analysis:439363637388846087 CD000031.pub6                    &lt;NA&gt;
+  CI.method CI.level PI.start PI.end Tau..CI.start Tau..CI.end Tau..CI
+1      &lt;NA&gt;     &lt;NA&gt;       NA     NA            NA          NA      NA
+2      &lt;NA&gt;     &lt;NA&gt;       NA     NA            NA          NA      NA
+3      &lt;NA&gt;     &lt;NA&gt;       NA     NA            NA          NA      NA
+4      &lt;NA&gt;     &lt;NA&gt;       NA     NA            NA          NA      NA
+5      &lt;NA&gt;     &lt;NA&gt;       NA     NA            NA          NA      NA
+  Prediction.interval CI.PI.level Effect.T
+1                  NA        &lt;NA&gt;       NA
+2                  NA        &lt;NA&gt;       NA
+3                  NA        &lt;NA&gt;       NA
+4                  NA        &lt;NA&gt;       NA
+5                  NA        &lt;NA&gt;       NA</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nbr total de méta-analyses gardées</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(overall_filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10869</code></pre>
+</div>
+</div>
+<p><strong>nbr totale 10869</strong></p>
+</section>
+<section id="reproduction-de-10-méta-analyses-avec-metagen" class="level1">
+<h1>Reproduction de 10 méta-analyses avec <code>metagen</code></h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>comparaisons <span class="ot">&lt;-</span> <span class="fu">tibble</span>() </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Si on souhaites appliquer la boucle sur toutes les méta-analyses</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># on remplace la ligne par </span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># meta_extraits &lt;- overall_filtered</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>meta_extraits <span class="ot">&lt;-</span> overall_filtered <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#(test sur petit echantillon)</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(meta_extraits)) {</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  meta <span class="ot">&lt;-</span> meta_extraits[i, ]</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  cochrane_id <span class="ot">&lt;-</span> meta<span class="sc">$</span>cochrane_IDs</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  group <span class="ot">&lt;-</span> meta<span class="sc">$</span>Analysis.group</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  number <span class="ot">&lt;-</span> meta<span class="sc">$</span>Analysis.number</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  etudes <span class="ot">&lt;-</span> data_rows <span class="sc">%&gt;%</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(cochrane_IDs <span class="sc">==</span> cochrane_id,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>           Analysis.group <span class="sc">==</span> group,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>           Analysis.number <span class="sc">==</span> number)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">nrow</span>(etudes) <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;&amp;</span> <span class="fu">all</span>(<span class="sc">!</span><span class="fu">is.na</span>(etudes<span class="sc">$</span>Mean))) {</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    etudes <span class="ot">&lt;-</span> etudes <span class="sc">%&gt;%</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">Mean_log =</span> <span class="fu">log</span>(Mean),</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">CI_start_log =</span> <span class="fu">log</span>(CI.start),</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">CI_end_log =</span> <span class="fu">log</span>(CI.end)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    effet <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(meta<span class="sc">$</span>Effect.measure <span class="sc">==</span> <span class="st">"Risk Ratio"</span>, <span class="st">"RR"</span>, <span class="st">"OR"</span>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    modele <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(meta<span class="sc">$</span>Analysis.model <span class="sc">==</span> <span class="st">"Random effects"</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>      <span class="fu">metagen</span>(</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">TE =</span> etudes<span class="sc">$</span>Mean_log,</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower =</span> etudes<span class="sc">$</span>CI_start_log,</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">upper =</span> etudes<span class="sc">$</span>CI_end_log,</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">studlab =</span> etudes<span class="sc">$</span>Study,</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">sm =</span> effet,</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">method.tau =</span> <span class="st">"DL"</span>,</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">random =</span> modele,</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">log =</span> <span class="cn">TRUE</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(res)) {</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>      comparaison <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">MetaID =</span> i,</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">Mean_original =</span> <span class="fu">log</span>(meta<span class="sc">$</span>Mean),</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>        <span class="at">Mean_reproduit =</span> res<span class="sc">$</span>TE.random[<span class="dv">1</span>],</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>        <span class="at">CI_lower_original =</span> <span class="fu">log</span>(meta<span class="sc">$</span>CI.start),</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>        <span class="at">CI_lower_reproduit =</span> res<span class="sc">$</span>lower.random[<span class="dv">1</span>],</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">CI_upper_original =</span> <span class="fu">log</span>(meta<span class="sc">$</span>CI.end),</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">CI_upper_reproduit =</span> res<span class="sc">$</span>upper.random[<span class="dv">1</span>],</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>        <span class="at">Tau2_original =</span> meta<span class="sc">$</span>Heterogeneity.Tau.,</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>        <span class="at">Tau2_reproduit =</span> res<span class="sc">$</span>tau2,</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>        <span class="at">I2_original =</span> meta<span class="sc">$</span>Heterogeneity.I.,</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>        <span class="at">I2_reproduit =</span> res<span class="sc">$</span>I2</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>      comparaisons <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(comparaisons, comparaison)</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(comparaisons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+  MetaID Mean_original Mean_reproduit CI_lower_original CI_lower_reproduit
+   &lt;int&gt;         &lt;dbl&gt;          &lt;dbl&gt;             &lt;dbl&gt;              &lt;dbl&gt;
+1      1         0.473          0.440             0.402             0.356 
+2      2         0.475          0.443             0.404             0.360 
+3      3         0.476          0.447             0.405             0.366 
+4      4         0.134          0.144             0.105             0.0928
+5      5         0.222          0.210             0.138             0.0901
+6      6         0.353          0.242             0.193            -0.0171
+# ℹ 6 more variables: CI_upper_original &lt;dbl&gt;, CI_upper_reproduit &lt;dbl&gt;,
+#   Tau2_original &lt;dbl&gt;, Tau2_reproduit &lt;dbl&gt;, I2_original &lt;dbl&gt;,
+#   I2_reproduit &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>meta1 <span class="ot">&lt;-</span> overall_filtered <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Extraction des idd</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>cochrane_id <span class="ot">&lt;-</span> meta1<span class="sc">$</span>cochrane_IDs</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>analysis_group <span class="ot">&lt;-</span> meta1<span class="sc">$</span>Analysis.group</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>analysis_number <span class="ot">&lt;-</span> meta1<span class="sc">$</span>Analysis.number</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Filtrer les études associées dans data_rows</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>etudes_meta1 <span class="ot">&lt;-</span> data_rows <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cochrane_IDs <span class="sc">==</span> cochrane_id,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>         Analysis.group <span class="sc">==</span> analysis_group,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>         Analysis.number <span class="sc">==</span> analysis_number)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(etudes_meta1, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Analysis.group Analysis.number     Analysis.name Subgroup            Study
+1              1               1 Smoking cessation     &lt;NA&gt;  Abdelghany 2022
+2              1               1 Smoking cessation     &lt;NA&gt;   Ahluwalia 2002
+3              1               1 Smoking cessation     &lt;NA&gt;  Anthenelli 2016
+4              1               1 Smoking cessation     &lt;NA&gt;       Aubin 2004
+5              1               1 Smoking cessation     &lt;NA&gt;       Brown 2007
+6              1               1 Smoking cessation     &lt;NA&gt; Cinciripini 2013
+  Study.year GIV.Mean GIV.SE Experimental.mean Experimental.SD
+1       2022        0      0                 0               0
+2       2002        0      0                 0               0
+3       2016        0      0                 0               0
+4       2003        0      0                 0               0
+5       2005        0      0                 0               0
+6       2013        0      0                 0               0
+  Experimental.cases Experimental.N Control.mean Control.SD Control.cases
+1                  3             25            0          0             3
+2                 37            300            0          0            19
+3                330           2034            0          0           191
+4                 85            340            0          0            21
+5                 38            255            0          0            27
+6                 23            102            0          0            15
+  Control.N O.E Variance    Weight     Mean CI.start   CI.end Footnotes
+1        25   0        0  0.285221 1.000000 0.222859 4.487152      &lt;NA&gt;
+2       300   0        0  1.806400 1.947368 1.146777 3.306872      &lt;NA&gt;
+3      2035   0        0 18.154610 1.728598 1.462355 2.043315      &lt;NA&gt;
+4       164   0        0  2.693754 1.952381 1.257693 3.030781      &lt;NA&gt;
+5       269   0        0  2.498406 1.484677 0.934795 2.358020      &lt;NA&gt;
+6       106   0        0  1.398680 1.593464 0.882467 2.877308      &lt;NA&gt;
+   cochrane_IDs Applicability
+1 CD000031.pub6          &lt;NA&gt;
+2 CD000031.pub6          &lt;NA&gt;
+3 CD000031.pub6          &lt;NA&gt;
+4 CD000031.pub6          &lt;NA&gt;
+5 CD000031.pub6          &lt;NA&gt;
+6 CD000031.pub6          &lt;NA&gt;
+  Bias.arising.from.the.randomization.process..judgement.
+1                                                    &lt;NA&gt;
+2                                                    &lt;NA&gt;
+3                                                    &lt;NA&gt;
+4                                                    &lt;NA&gt;
+5                                                    &lt;NA&gt;
+6                                                    &lt;NA&gt;
+  Bias.arising.from.the.randomization.process..support.
+1                                                  &lt;NA&gt;
+2                                                  &lt;NA&gt;
+3                                                  &lt;NA&gt;
+4                                                  &lt;NA&gt;
+5                                                  &lt;NA&gt;
+6                                                  &lt;NA&gt;
+  Bias.due.to.deviations.from.intended.interventions..judgement.
+1                                                           &lt;NA&gt;
+2                                                           &lt;NA&gt;
+3                                                           &lt;NA&gt;
+4                                                           &lt;NA&gt;
+5                                                           &lt;NA&gt;
+6                                                           &lt;NA&gt;
+  Bias.due.to.deviations.from.intended.interventions..support.
+1                                                         &lt;NA&gt;
+2                                                         &lt;NA&gt;
+3                                                         &lt;NA&gt;
+4                                                         &lt;NA&gt;
+5                                                         &lt;NA&gt;
+6                                                         &lt;NA&gt;
+  Bias.due.to.missing.outcome.data..judgement.
+1                                         &lt;NA&gt;
+2                                         &lt;NA&gt;
+3                                         &lt;NA&gt;
+4                                         &lt;NA&gt;
+5                                         &lt;NA&gt;
+6                                         &lt;NA&gt;
+  Bias.due.to.missing.outcome.data..support.
+1                                       &lt;NA&gt;
+2                                       &lt;NA&gt;
+3                                       &lt;NA&gt;
+4                                       &lt;NA&gt;
+5                                       &lt;NA&gt;
+6                                       &lt;NA&gt;
+  Bias.in.measurement.of.the.outcome..judgement.
+1                                           &lt;NA&gt;
+2                                           &lt;NA&gt;
+3                                           &lt;NA&gt;
+4                                           &lt;NA&gt;
+5                                           &lt;NA&gt;
+6                                           &lt;NA&gt;
+  Bias.in.measurement.of.the.outcome..support.
+1                                         &lt;NA&gt;
+2                                         &lt;NA&gt;
+3                                         &lt;NA&gt;
+4                                         &lt;NA&gt;
+5                                         &lt;NA&gt;
+6                                         &lt;NA&gt;
+  Bias.in.selection.of.the.reported.result..judgement.
+1                                                 &lt;NA&gt;
+2                                                 &lt;NA&gt;
+3                                                 &lt;NA&gt;
+4                                                 &lt;NA&gt;
+5                                                 &lt;NA&gt;
+6                                                 &lt;NA&gt;
+  Bias.in.selection.of.the.reported.result..support. Overall.bias..judgement.
+1                                               &lt;NA&gt;                     &lt;NA&gt;
+2                                               &lt;NA&gt;                     &lt;NA&gt;
+3                                               &lt;NA&gt;                     &lt;NA&gt;
+4                                               &lt;NA&gt;                     &lt;NA&gt;
+5                                               &lt;NA&gt;                     &lt;NA&gt;
+6                                               &lt;NA&gt;                     &lt;NA&gt;
+  Overall.bias..support. Subgroup.number
+1                   &lt;NA&gt;              NA
+2                   &lt;NA&gt;              NA
+3                   &lt;NA&gt;              NA
+4                   &lt;NA&gt;              NA
+5                   &lt;NA&gt;              NA
+6                   &lt;NA&gt;              NA</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(etudes_meta1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Analysis.group"                                                
+ [2] "Analysis.number"                                               
+ [3] "Analysis.name"                                                 
+ [4] "Subgroup"                                                      
+ [5] "Study"                                                         
+ [6] "Study.year"                                                    
+ [7] "GIV.Mean"                                                      
+ [8] "GIV.SE"                                                        
+ [9] "Experimental.mean"                                             
+[10] "Experimental.SD"                                               
+[11] "Experimental.cases"                                            
+[12] "Experimental.N"                                                
+[13] "Control.mean"                                                  
+[14] "Control.SD"                                                    
+[15] "Control.cases"                                                 
+[16] "Control.N"                                                     
+[17] "O.E"                                                           
+[18] "Variance"                                                      
+[19] "Weight"                                                        
+[20] "Mean"                                                          
+[21] "CI.start"                                                      
+[22] "CI.end"                                                        
+[23] "Footnotes"                                                     
+[24] "cochrane_IDs"                                                  
+[25] "Applicability"                                                 
+[26] "Bias.arising.from.the.randomization.process..judgement."       
+[27] "Bias.arising.from.the.randomization.process..support."         
+[28] "Bias.due.to.deviations.from.intended.interventions..judgement."
+[29] "Bias.due.to.deviations.from.intended.interventions..support."  
+[30] "Bias.due.to.missing.outcome.data..judgement."                  
+[31] "Bias.due.to.missing.outcome.data..support."                    
+[32] "Bias.in.measurement.of.the.outcome..judgement."                
+[33] "Bias.in.measurement.of.the.outcome..support."                  
+[34] "Bias.in.selection.of.the.reported.result..judgement."          
+[35] "Bias.in.selection.of.the.reported.result..support."            
+[36] "Overall.bias..judgement."                                      
+[37] "Overall.bias..support."                                        
+[38] "Subgroup.number"                                               </code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(meta)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Définir les paramètres</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>effet <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(meta1<span class="sc">$</span>Effect.measure <span class="sc">==</span> <span class="st">"Risk Ratio"</span>, <span class="st">"RR"</span>, <span class="st">"OR"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(meta1<span class="sc">$</span>Analysis.model <span class="sc">==</span> <span class="st">"Random effects"</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>methode <span class="ot">&lt;-</span> <span class="fu">tolower</span>(meta1<span class="sc">$</span>Statistical.method)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Lancer la méta-analyse avec metabin()</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>resultat_bin <span class="ot">&lt;-</span> <span class="fu">metabin</span>(</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">event.e =</span> etudes_meta1<span class="sc">$</span>Experimental.cases,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.e =</span> etudes_meta1<span class="sc">$</span>Experimental.N,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">event.c =</span> etudes_meta1<span class="sc">$</span>Control.cases,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.c =</span> etudes_meta1<span class="sc">$</span>Control.N,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">studlab =</span> etudes_meta1<span class="sc">$</span>Study,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">sm =</span> effet,</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> methode,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">random =</span> modele</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les résultats</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultat_bin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of studies: k = 51
+Number of observations: o = 18577 (o.e = 10000, o.c = 8577)
+Number of events: e = 2964
+
+                        RR           95%-CI     z  p-value
+Common effect model 1.6040 [1.4942; 1.7219] 13.06 &lt; 0.0001
+
+Quantifying heterogeneity (with 95%-CIs):
+ tau^2 = 0.0125 [0.0000; 0.0789]; tau = 0.1120 [0.0000; 0.2809]
+ I^2 = 15.3% [0.0%; 40.6%]; H = 1.09 [1.00; 1.30]
+
+Test of heterogeneity:
+     Q d.f. p-value
+ 59.02   50  0.1792
+
+Details of meta-analysis methods:
+- Mantel-Haenszel method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-Profile method for confidence interval of tau^2 and tau
+- Calculation of I^2 based on Q
+- Continuity correction of 0.5 in studies with zero cell frequencies</code></pre>
+</div>
+</div>
+<p><strong>les patients exposé ont 1.6 fois plus de chances d’avoir l’événement que ceux du groupe contrôle.</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># avec metagen</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>resultat_gen <span class="ot">&lt;-</span> <span class="fu">metagen</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">TE =</span> etudes_meta1<span class="sc">$</span>Mean,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> etudes_meta1<span class="sc">$</span>CI.start,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> etudes_meta1<span class="sc">$</span>CI.end,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">studlab =</span> etudes_meta1<span class="sc">$</span>Study,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">sm =</span> effet,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">method.tau =</span> <span class="st">"DL"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">random =</span> modele,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">log =</span> <span class="cn">TRUE</span>  </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultat_gen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of studies: k = 51
+
+                        RR           95%-CI     z  p-value
+Common effect model 4.0218 [3.6157; 4.4735] 25.63 &lt; 0.0001
+
+Quantifying heterogeneity (with 95%-CIs):
+ tau^2 = 0.0108; tau = 0.1040; I^2 = 6.5% [0.0%; 33.2%]; H = 1.03 [1.00; 1.22]
+
+Test of heterogeneity:
+     Q d.f. p-value
+ 53.46   50  0.3427
+
+Details of meta-analysis methods:
+- Inverse variance method
+- DerSimonian-Laird estimator for tau^2
+- Calculation of I^2 based on Q</code></pre>
+</div>
+</div>
+<p><strong>Le groupe exposé a 4 fois plus de risques que le groupe contrôle</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>etudes_meta1 <span class="ot">&lt;-</span> etudes_meta1 <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_log =</span> <span class="fu">log</span>(Mean),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">CI_start_log =</span> <span class="fu">log</span>(CI.start),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">CI_end_log =</span> <span class="fu">log</span>(CI.end)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>resultat_gen <span class="ot">&lt;-</span> <span class="fu">metagen</span>(</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">TE =</span> etudes_meta1<span class="sc">$</span>Mean_log,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> etudes_meta1<span class="sc">$</span>CI_start_log,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> etudes_meta1<span class="sc">$</span>CI_end_log,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">studlab =</span> etudes_meta1<span class="sc">$</span>Study,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">sm =</span> effet,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">method.tau =</span> <span class="st">"DL"</span>,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">random =</span> modele,</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">log =</span> <span class="cn">TRUE</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultat_gen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of studies: k = 51
+
+                        RR           95%-CI     z  p-value
+Common effect model 1.5599 [1.4532; 1.6744] 12.30 &lt; 0.0001
+
+Quantifying heterogeneity (with 95%-CIs):
+ tau^2 = 0.0125 [0.0000; 0.0918]; tau = 0.1118 [0.0000; 0.3030]
+ I^2 = 15.3% [0.0%; 40.6%]; H = 1.09 [1.00; 1.30]
+
+Test of heterogeneity:
+     Q d.f. p-value
+ 59.02   50  0.1792
+
+Details of meta-analysis methods:
+- Inverse variance method
+- DerSimonian-Laird estimator for tau^2
+- Jackson method for confidence interval of tau^2 and tau
+- Calculation of I^2 based on Q</code></pre>
+</div>
+</div>
+<p><strong>Le groupe exposé a 56% plus de risque d’avoir l’événement par rapport au groupe contrôle</strong></p>
+<p><strong>estimation de variation faible</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>comparaison <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  Méthode <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"metabin"</span>, <span class="st">"metagen"</span>),</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Effet_global =</span> <span class="fu">c</span>(resultat_bin<span class="sc">$</span>TE.random[<span class="dv">1</span>], resultat_gen<span class="sc">$</span>TE.random[<span class="dv">1</span>]),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">IC_basse     =</span> <span class="fu">c</span>(resultat_bin<span class="sc">$</span>lower.random[<span class="dv">1</span>], resultat_gen<span class="sc">$</span>lower.random[<span class="dv">1</span>]),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">IC_haute     =</span> <span class="fu">c</span>(resultat_bin<span class="sc">$</span>upper.random[<span class="dv">1</span>], resultat_gen<span class="sc">$</span>upper.random[<span class="dv">1</span>]),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">p_value      =</span> <span class="fu">c</span>(resultat_bin<span class="sc">$</span>pval.random[<span class="dv">1</span>], resultat_gen<span class="sc">$</span>pval[<span class="dv">1</span>])</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(comparaison)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  Méthode Effet_global IC_basse IC_haute  p_value
+  &lt;chr&gt;          &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 metabin        0.440    0.356    0.524 7.58e-25
+2 metagen        0.440    0.356    0.524 1   e+ 0</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"I2 metabin :"</span>, resultat_bin<span class="sc">$</span>I2, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>I2 metabin : 0.1528014 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"I2 metagen :"</span>, resultat_gen<span class="sc">$</span>I2, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>I2 metagen : 0.1527814 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Tau2 metabin :"</span>, resultat_bin<span class="sc">$</span>tau2, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tau2 metabin : 0.01254689 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Tau2 metagen :"</span>, resultat_gen<span class="sc">$</span>tau2, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tau2 metagen : 0.01249061 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">forest</span>(resultat_gen, <span class="at">sortvar =</span> TE, <span class="at">comb.fixed =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>meta1_log <span class="ot">&lt;-</span> meta1 <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_log =</span> <span class="fu">log</span>(Mean),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">CI_start_log =</span> <span class="fu">log</span>(CI.start),</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">CI_end_log =</span> <span class="fu">log</span>(CI.end)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparaison des résultats obtenus metagen vs meta1</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>comparaison_resultats <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">c</span>(</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Effet global (Mean)"</span>,</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"IC 95% - Borne inférieure"</span>,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"IC 95% - Borne supérieure"</span>,</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Tau² (Hétérogénéité)"</span>,</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"I² (Hétérogénéité)"</span>,</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"p-value de l’effet"</span>,</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Z-score"</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Resultat_meta =</span> <span class="fu">c</span>(</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    resultat_gen<span class="sc">$</span>TE.random[<span class="dv">1</span>],       <span class="co"># effet estimé (log)</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    resultat_gen<span class="sc">$</span>lower.random[<span class="dv">1</span>],    <span class="co"># borne inférieure</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    resultat_gen<span class="sc">$</span>upper.random[<span class="dv">1</span>],    <span class="co"># borne supérieure</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    resultat_gen<span class="sc">$</span>tau2,               <span class="co"># tau² (variance inter-études)</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    resultat_gen<span class="sc">$</span>I2,                 <span class="co"># I² (hétérogénéité)</span></span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    resultat_gen<span class="sc">$</span>pval.random[<span class="dv">1</span>],     <span class="co"># p-value</span></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    resultat_gen<span class="sc">$</span>zval.random[<span class="dv">1</span>]      <span class="co"># Z-score</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">Resultat_officiel =</span> <span class="fu">c</span>(</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    meta1_log<span class="sc">$</span>Mean_log,              <span class="co"># Mean log-transformé</span></span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>    meta1_log<span class="sc">$</span>CI_start_log,          <span class="co"># IC start log</span></span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    meta1_log<span class="sc">$</span>CI_end_log,            <span class="co"># IC end log</span></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>    meta1<span class="sc">$</span>Heterogeneity.Tau.,        <span class="co"># tau² officiel</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>    meta1<span class="sc">$</span>Heterogeneity.I.,          <span class="co"># I² officiel</span></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>    meta1<span class="sc">$</span>Effect.P,                  <span class="co"># p-value officielle</span></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>    meta1<span class="sc">$</span>Effect.Z                   <span class="co"># Z-score officiel</span></span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(comparaison_resultats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  Variable                  Resultat_meta Resultat_officiel
+  &lt;chr&gt;                             &lt;dbl&gt;             &lt;dbl&gt;
+1 Effet global (Mean)            4.40e- 1             0.473
+2 IC 95% - Borne inférieure      3.56e- 1             0.402
+3 IC 95% - Borne supérieure      5.24e- 1             0.543
+4 Tau² (Hétérogénéité)           1.25e- 2            NA    
+5 I² (Hétérogénéité)             1.53e- 1            16.1  
+6 p-value de l’effet             7.17e-25             0    
+7 Z-score                        1.03e+ 1            13.1  </code></pre>
+</div>
+</div>
+<p><strong>On peut remarquer que la reproduction de la meta-analyse concorde avec celle de la base oficielle</strong></p>
+<section id="comparaison-graphique-des-résultats-reproduits" class="level2">
+<h2 class="anchored" data-anchor-id="comparaison-graphique-des-résultats-reproduits">Comparaison graphique des résultats reproduits</h2>
+<p>Les figures suivantes comparent les résultats extraits de la base officielle aux résultats que nous avons reproduits pour 10 méta-analyses (via <code>metagen</code>).<br>
+Chaque point représente une méta-analyse.<br>
+- L’axe <strong>X</strong> contient la valeur originale (officielle), - L’axe <strong>Y</strong> contient la valeur reproduite. - La ligne pointillée représente une <strong>égalité parfaite</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparaisons, <span class="fu">aes</span>(<span class="at">x =</span> Mean_original, <span class="at">y =</span> Mean_reproduit)) <span class="sc">+</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"plum"</span>) <span class="sc">+</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Comparaison de l'effet global (Mean)"</span>,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Valeur originale (log)"</span>,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Valeur reproduite (log)"</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Effet global-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparaisons, <span class="fu">aes</span>(<span class="at">x =</span> CI_lower_original, <span class="at">y =</span> CI_lower_reproduit)) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"cyan4"</span>) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Comparaison borne inférieure IC 95%"</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Valeur originale (log)"</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Valeur reproduite (log)"</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Borne inferieure IC 95-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparaisons, <span class="fu">aes</span>(<span class="at">x =</span> CI_upper_original, <span class="at">y =</span> CI_upper_reproduit)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"darkorchid"</span>) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Comparaison borne supérieure IC 95%"</span>,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Valeur originale (log)"</span>,</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Valeur reproduite (log)"</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Borne superieure IC 95-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparaisons, <span class="fu">aes</span>(<span class="at">x =</span> I2_original, <span class="at">y =</span> I2_reproduit)) <span class="sc">+</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"deepskyblue4"</span>) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Comparaison de I² (hétérogénéité)"</span>,</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"I² original"</span>,</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"I² reproduit"</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/hétérogénéité-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>La reproduction automatique de plusieurs méta-analyses à partir des données Cochrane a montré une bonne concordance sur les principaux indicateurs (effet global, intervalles de confiance, hétérogénéité).</p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb40" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>title: "Meta-Analyses de Donnees Cochrane"</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>author: "Assia Aouimeur"</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>date: "2025-04-14"</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>format:</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  html:</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    toc: true</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    toc-title: ""</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>    code-fold: true</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>    theme:</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>      light: flatly</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>      dark: darkly</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>    css: styles.css</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>::: {.hero .center style="background-color:#3498db; color:white; padding:4em 2em; text-align:center; border-radius:10px;"}</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># **Meta-Analyses de Données Cliniques**</span></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### **Exploration de résultats issus de la base Cochrane**</span></span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Analyse comparative, reproductibilité et visualisation des effets globaux</span></span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sommaire</span></span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a>::: toc-style</span>
+<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Introduction</span><span class="co">](#introduction)</span></span>
+<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Chargement des librairies / packages et des données</span><span class="co">](#chargement-des-librairies--packages-et-des-donnees)</span></span>
+<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Sélection des méta-analyses avec RR ou OR</span><span class="co">](#sélection-des-méta-analyses-avec-rr-ou-or)</span></span>
+<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Reproduction de 10 méta-analyses avec metagen</span><span class="co">](#reproduction-de-10-méta-analyses-avec-metagen)</span></span>
+<span id="cb40-35"><a href="#cb40-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Comparaison graphique des résultats reproduits</span><span class="co">](#comparaison-graphique-des-résultats-reproduits)</span></span>
+<span id="cb40-36"><a href="#cb40-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Conclusion</span><span class="co">](#conclusion)</span></span>
+<span id="cb40-37"><a href="#cb40-37" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-38"><a href="#cb40-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-39"><a href="#cb40-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb40-40"><a href="#cb40-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-41"><a href="#cb40-41" aria-hidden="true" tabindex="-1"></a>*Ce site présente la reproduction et l'analyse de méta-analyses à partir de données cliniques issues de la base Cochrane. L'objectif est d'évaluer la reproductibilité des effets globaux, d'explorer l'hétérogénéité et de comparer les intervalles de confiance obtenus par différentes méthodes.*</span>
+<span id="cb40-42"><a href="#cb40-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-43"><a href="#cb40-43" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Tous les résultats, codes et graphiques sont accessibles, interactifs, et enrichis par un sommaire dynamique.</span></span>
+<span id="cb40-44"><a href="#cb40-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-45"><a href="#cb40-45" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb40-46"><a href="#cb40-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-47"><a href="#cb40-47" aria-hidden="true" tabindex="-1"></a><span class="fu"># Chargement des librairies / packages et des données</span></span>
+<span id="cb40-48"><a href="#cb40-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-49"><a href="#cb40-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r packages}</span></span>
+<span id="cb40-50"><a href="#cb40-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-51"><a href="#cb40-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-52"><a href="#cb40-52" aria-hidden="true" tabindex="-1"></a><span class="in">#install.packages('meta')</span></span>
+<span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a><span class="in">#install.packages('metafor')</span></span>
+<span id="cb40-54"><a href="#cb40-54" aria-hidden="true" tabindex="-1"></a><span class="in">#install.packages('tidyverse')</span></span>
+<span id="cb40-55"><a href="#cb40-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-56"><a href="#cb40-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-57"><a href="#cb40-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-58"><a href="#cb40-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r librairie}</span></span>
+<span id="cb40-59"><a href="#cb40-59" aria-hidden="true" tabindex="-1"></a><span class="in">library(meta)</span></span>
+<span id="cb40-60"><a href="#cb40-60" aria-hidden="true" tabindex="-1"></a><span class="in">library(metafor)</span></span>
+<span id="cb40-61"><a href="#cb40-61" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb40-62"><a href="#cb40-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-63"><a href="#cb40-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-64"><a href="#cb40-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r telechargement}</span></span>
+<span id="cb40-65"><a href="#cb40-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-66"><a href="#cb40-66" aria-hidden="true" tabindex="-1"></a><span class="in">overall &lt;- read.csv("C:/Users/Aouimeur/Downloads/overall-estimates-and-settings.csv")</span></span>
+<span id="cb40-67"><a href="#cb40-67" aria-hidden="true" tabindex="-1"></a><span class="in">data_rows &lt;- read.csv("C:/Users/Aouimeur/Downloads/data-rows.csv")</span></span>
+<span id="cb40-68"><a href="#cb40-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-69"><a href="#cb40-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-70"><a href="#cb40-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-71"><a href="#cb40-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-72"><a href="#cb40-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{r nom}</span></span>
+<span id="cb40-73"><a href="#cb40-73" aria-hidden="true" tabindex="-1"></a><span class="in">colnames(overall)</span></span>
+<span id="cb40-74"><a href="#cb40-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-75"><a href="#cb40-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-76"><a href="#cb40-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-77"><a href="#cb40-77" aria-hidden="true" tabindex="-1"></a><span class="fu"># Sélection des méta-analyses avec RR ou OR</span></span>
+<span id="cb40-78"><a href="#cb40-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-79"><a href="#cb40-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Filtrage des méta-analyses RR / OR}</span></span>
+<span id="cb40-80"><a href="#cb40-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-81"><a href="#cb40-81" aria-hidden="true" tabindex="-1"></a><span class="in">library(dplyr)</span></span>
+<span id="cb40-82"><a href="#cb40-82" aria-hidden="true" tabindex="-1"></a><span class="in">overall_filtered &lt;- overall %&gt;%</span></span>
+<span id="cb40-83"><a href="#cb40-83" aria-hidden="true" tabindex="-1"></a><span class="in">  filter(Effect.measure %in% c("Risk Ratio", "Odds Ratio"))</span></span>
+<span id="cb40-84"><a href="#cb40-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-85"><a href="#cb40-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-86"><a href="#cb40-86" aria-hidden="true" tabindex="-1"></a><span class="in">head(overall_filtered, 5)</span></span>
+<span id="cb40-87"><a href="#cb40-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-88"><a href="#cb40-88" aria-hidden="true" tabindex="-1"></a><span class="in"># nbr total de méta-analyses gardées</span></span>
+<span id="cb40-89"><a href="#cb40-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-90"><a href="#cb40-90" aria-hidden="true" tabindex="-1"></a><span class="in">nrow(overall_filtered)</span></span>
+<span id="cb40-91"><a href="#cb40-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-92"><a href="#cb40-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-93"><a href="#cb40-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-94"><a href="#cb40-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-95"><a href="#cb40-95" aria-hidden="true" tabindex="-1"></a>**nbr totale 10869**</span>
+<span id="cb40-96"><a href="#cb40-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-97"><a href="#cb40-97" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reproduction de 10 méta-analyses avec `metagen`</span></span>
+<span id="cb40-98"><a href="#cb40-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-99"><a href="#cb40-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{r comparaison multiple}</span></span>
+<span id="cb40-100"><a href="#cb40-100" aria-hidden="true" tabindex="-1"></a><span class="in">comparaisons &lt;- tibble() </span></span>
+<span id="cb40-101"><a href="#cb40-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-102"><a href="#cb40-102" aria-hidden="true" tabindex="-1"></a><span class="in"># Si on souhaites appliquer la boucle sur toutes les méta-analyses</span></span>
+<span id="cb40-103"><a href="#cb40-103" aria-hidden="true" tabindex="-1"></a><span class="in"># on remplace la ligne par </span></span>
+<span id="cb40-104"><a href="#cb40-104" aria-hidden="true" tabindex="-1"></a><span class="in"># meta_extraits &lt;- overall_filtered</span></span>
+<span id="cb40-105"><a href="#cb40-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-106"><a href="#cb40-106" aria-hidden="true" tabindex="-1"></a><span class="in">meta_extraits &lt;- overall_filtered %&gt;% slice(1:10)</span></span>
+<span id="cb40-107"><a href="#cb40-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-108"><a href="#cb40-108" aria-hidden="true" tabindex="-1"></a><span class="in">#(test sur petit echantillon)</span></span>
+<span id="cb40-109"><a href="#cb40-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-110"><a href="#cb40-110" aria-hidden="true" tabindex="-1"></a><span class="in">for (i in 1:nrow(meta_extraits)) {</span></span>
+<span id="cb40-111"><a href="#cb40-111" aria-hidden="true" tabindex="-1"></a><span class="in">  meta &lt;- meta_extraits[i, ]</span></span>
+<span id="cb40-112"><a href="#cb40-112" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb40-113"><a href="#cb40-113" aria-hidden="true" tabindex="-1"></a><span class="in">  cochrane_id &lt;- meta$cochrane_IDs</span></span>
+<span id="cb40-114"><a href="#cb40-114" aria-hidden="true" tabindex="-1"></a><span class="in">  group &lt;- meta$Analysis.group</span></span>
+<span id="cb40-115"><a href="#cb40-115" aria-hidden="true" tabindex="-1"></a><span class="in">  number &lt;- meta$Analysis.number</span></span>
+<span id="cb40-116"><a href="#cb40-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-117"><a href="#cb40-117" aria-hidden="true" tabindex="-1"></a><span class="in">  etudes &lt;- data_rows %&gt;%</span></span>
+<span id="cb40-118"><a href="#cb40-118" aria-hidden="true" tabindex="-1"></a><span class="in">    filter(cochrane_IDs == cochrane_id,</span></span>
+<span id="cb40-119"><a href="#cb40-119" aria-hidden="true" tabindex="-1"></a><span class="in">           Analysis.group == group,</span></span>
+<span id="cb40-120"><a href="#cb40-120" aria-hidden="true" tabindex="-1"></a><span class="in">           Analysis.number == number)</span></span>
+<span id="cb40-121"><a href="#cb40-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-122"><a href="#cb40-122" aria-hidden="true" tabindex="-1"></a><span class="in">  if (nrow(etudes) &gt; 1 &amp;&amp; all(!is.na(etudes$Mean))) {</span></span>
+<span id="cb40-123"><a href="#cb40-123" aria-hidden="true" tabindex="-1"></a><span class="in">    etudes &lt;- etudes %&gt;%</span></span>
+<span id="cb40-124"><a href="#cb40-124" aria-hidden="true" tabindex="-1"></a><span class="in">      mutate(</span></span>
+<span id="cb40-125"><a href="#cb40-125" aria-hidden="true" tabindex="-1"></a><span class="in">        Mean_log = log(Mean),</span></span>
+<span id="cb40-126"><a href="#cb40-126" aria-hidden="true" tabindex="-1"></a><span class="in">        CI_start_log = log(CI.start),</span></span>
+<span id="cb40-127"><a href="#cb40-127" aria-hidden="true" tabindex="-1"></a><span class="in">        CI_end_log = log(CI.end)</span></span>
+<span id="cb40-128"><a href="#cb40-128" aria-hidden="true" tabindex="-1"></a><span class="in">      )</span></span>
+<span id="cb40-129"><a href="#cb40-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-130"><a href="#cb40-130" aria-hidden="true" tabindex="-1"></a><span class="in">    effet &lt;- ifelse(meta$Effect.measure == "Risk Ratio", "RR", "OR")</span></span>
+<span id="cb40-131"><a href="#cb40-131" aria-hidden="true" tabindex="-1"></a><span class="in">    modele &lt;- ifelse(meta$Analysis.model == "Random effects", TRUE, FALSE)</span></span>
+<span id="cb40-132"><a href="#cb40-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-133"><a href="#cb40-133" aria-hidden="true" tabindex="-1"></a><span class="in">    res &lt;- tryCatch({</span></span>
+<span id="cb40-134"><a href="#cb40-134" aria-hidden="true" tabindex="-1"></a><span class="in">      metagen(</span></span>
+<span id="cb40-135"><a href="#cb40-135" aria-hidden="true" tabindex="-1"></a><span class="in">        TE = etudes$Mean_log,</span></span>
+<span id="cb40-136"><a href="#cb40-136" aria-hidden="true" tabindex="-1"></a><span class="in">        lower = etudes$CI_start_log,</span></span>
+<span id="cb40-137"><a href="#cb40-137" aria-hidden="true" tabindex="-1"></a><span class="in">        upper = etudes$CI_end_log,</span></span>
+<span id="cb40-138"><a href="#cb40-138" aria-hidden="true" tabindex="-1"></a><span class="in">        studlab = etudes$Study,</span></span>
+<span id="cb40-139"><a href="#cb40-139" aria-hidden="true" tabindex="-1"></a><span class="in">        sm = effet,</span></span>
+<span id="cb40-140"><a href="#cb40-140" aria-hidden="true" tabindex="-1"></a><span class="in">        method.tau = "DL",</span></span>
+<span id="cb40-141"><a href="#cb40-141" aria-hidden="true" tabindex="-1"></a><span class="in">        random = modele,</span></span>
+<span id="cb40-142"><a href="#cb40-142" aria-hidden="true" tabindex="-1"></a><span class="in">        log = TRUE</span></span>
+<span id="cb40-143"><a href="#cb40-143" aria-hidden="true" tabindex="-1"></a><span class="in">      )</span></span>
+<span id="cb40-144"><a href="#cb40-144" aria-hidden="true" tabindex="-1"></a><span class="in">    }, error = function(e) NULL)</span></span>
+<span id="cb40-145"><a href="#cb40-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-146"><a href="#cb40-146" aria-hidden="true" tabindex="-1"></a><span class="in">    if (!is.null(res)) {</span></span>
+<span id="cb40-147"><a href="#cb40-147" aria-hidden="true" tabindex="-1"></a><span class="in">      comparaison &lt;- tibble(</span></span>
+<span id="cb40-148"><a href="#cb40-148" aria-hidden="true" tabindex="-1"></a><span class="in">        MetaID = i,</span></span>
+<span id="cb40-149"><a href="#cb40-149" aria-hidden="true" tabindex="-1"></a><span class="in">        Mean_original = log(meta$Mean),</span></span>
+<span id="cb40-150"><a href="#cb40-150" aria-hidden="true" tabindex="-1"></a><span class="in">        Mean_reproduit = res$TE.random[1],</span></span>
+<span id="cb40-151"><a href="#cb40-151" aria-hidden="true" tabindex="-1"></a><span class="in">        CI_lower_original = log(meta$CI.start),</span></span>
+<span id="cb40-152"><a href="#cb40-152" aria-hidden="true" tabindex="-1"></a><span class="in">        CI_lower_reproduit = res$lower.random[1],</span></span>
+<span id="cb40-153"><a href="#cb40-153" aria-hidden="true" tabindex="-1"></a><span class="in">        CI_upper_original = log(meta$CI.end),</span></span>
+<span id="cb40-154"><a href="#cb40-154" aria-hidden="true" tabindex="-1"></a><span class="in">        CI_upper_reproduit = res$upper.random[1],</span></span>
+<span id="cb40-155"><a href="#cb40-155" aria-hidden="true" tabindex="-1"></a><span class="in">        Tau2_original = meta$Heterogeneity.Tau.,</span></span>
+<span id="cb40-156"><a href="#cb40-156" aria-hidden="true" tabindex="-1"></a><span class="in">        Tau2_reproduit = res$tau2,</span></span>
+<span id="cb40-157"><a href="#cb40-157" aria-hidden="true" tabindex="-1"></a><span class="in">        I2_original = meta$Heterogeneity.I.,</span></span>
+<span id="cb40-158"><a href="#cb40-158" aria-hidden="true" tabindex="-1"></a><span class="in">        I2_reproduit = res$I2</span></span>
+<span id="cb40-159"><a href="#cb40-159" aria-hidden="true" tabindex="-1"></a><span class="in">      )</span></span>
+<span id="cb40-160"><a href="#cb40-160" aria-hidden="true" tabindex="-1"></a><span class="in">      comparaisons &lt;- bind_rows(comparaisons, comparaison)</span></span>
+<span id="cb40-161"><a href="#cb40-161" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb40-162"><a href="#cb40-162" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb40-163"><a href="#cb40-163" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb40-164"><a href="#cb40-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-165"><a href="#cb40-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-166"><a href="#cb40-166" aria-hidden="true" tabindex="-1"></a><span class="in">head(comparaisons)</span></span>
+<span id="cb40-167"><a href="#cb40-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-168"><a href="#cb40-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-169"><a href="#cb40-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r selection}</span></span>
+<span id="cb40-170"><a href="#cb40-170" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb40-171"><a href="#cb40-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-172"><a href="#cb40-172" aria-hidden="true" tabindex="-1"></a><span class="in">meta1 &lt;- overall_filtered %&gt;% slice(1)</span></span>
+<span id="cb40-173"><a href="#cb40-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-174"><a href="#cb40-174" aria-hidden="true" tabindex="-1"></a><span class="in"># 2. Extraction des idd</span></span>
+<span id="cb40-175"><a href="#cb40-175" aria-hidden="true" tabindex="-1"></a><span class="in">cochrane_id &lt;- meta1$cochrane_IDs</span></span>
+<span id="cb40-176"><a href="#cb40-176" aria-hidden="true" tabindex="-1"></a><span class="in">analysis_group &lt;- meta1$Analysis.group</span></span>
+<span id="cb40-177"><a href="#cb40-177" aria-hidden="true" tabindex="-1"></a><span class="in">analysis_number &lt;- meta1$Analysis.number</span></span>
+<span id="cb40-178"><a href="#cb40-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-179"><a href="#cb40-179" aria-hidden="true" tabindex="-1"></a><span class="in"># 3. Filtrer les études associées dans data_rows</span></span>
+<span id="cb40-180"><a href="#cb40-180" aria-hidden="true" tabindex="-1"></a><span class="in">etudes_meta1 &lt;- data_rows %&gt;%</span></span>
+<span id="cb40-181"><a href="#cb40-181" aria-hidden="true" tabindex="-1"></a><span class="in">  filter(cochrane_IDs == cochrane_id,</span></span>
+<span id="cb40-182"><a href="#cb40-182" aria-hidden="true" tabindex="-1"></a><span class="in">         Analysis.group == analysis_group,</span></span>
+<span id="cb40-183"><a href="#cb40-183" aria-hidden="true" tabindex="-1"></a><span class="in">         Analysis.number == analysis_number)</span></span>
+<span id="cb40-184"><a href="#cb40-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-185"><a href="#cb40-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-186"><a href="#cb40-186" aria-hidden="true" tabindex="-1"></a><span class="in">head(etudes_meta1, 6)</span></span>
+<span id="cb40-187"><a href="#cb40-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-188"><a href="#cb40-188" aria-hidden="true" tabindex="-1"></a><span class="in">colnames(etudes_meta1)</span></span>
+<span id="cb40-189"><a href="#cb40-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-190"><a href="#cb40-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-191"><a href="#cb40-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r metanalyse1}</span></span>
+<span id="cb40-192"><a href="#cb40-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-193"><a href="#cb40-193" aria-hidden="true" tabindex="-1"></a><span class="in">library(meta)</span></span>
+<span id="cb40-194"><a href="#cb40-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-195"><a href="#cb40-195" aria-hidden="true" tabindex="-1"></a><span class="in"># Définir les paramètres</span></span>
+<span id="cb40-196"><a href="#cb40-196" aria-hidden="true" tabindex="-1"></a><span class="in">effet &lt;- ifelse(meta1$Effect.measure == "Risk Ratio", "RR", "OR")</span></span>
+<span id="cb40-197"><a href="#cb40-197" aria-hidden="true" tabindex="-1"></a><span class="in">modele &lt;- ifelse(meta1$Analysis.model == "Random effects", TRUE, FALSE)</span></span>
+<span id="cb40-198"><a href="#cb40-198" aria-hidden="true" tabindex="-1"></a><span class="in">methode &lt;- tolower(meta1$Statistical.method)</span></span>
+<span id="cb40-199"><a href="#cb40-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-200"><a href="#cb40-200" aria-hidden="true" tabindex="-1"></a><span class="in"># Lancer la méta-analyse avec metabin()</span></span>
+<span id="cb40-201"><a href="#cb40-201" aria-hidden="true" tabindex="-1"></a><span class="in">resultat_bin &lt;- metabin(</span></span>
+<span id="cb40-202"><a href="#cb40-202" aria-hidden="true" tabindex="-1"></a><span class="in">  event.e = etudes_meta1$Experimental.cases,</span></span>
+<span id="cb40-203"><a href="#cb40-203" aria-hidden="true" tabindex="-1"></a><span class="in">  n.e = etudes_meta1$Experimental.N,</span></span>
+<span id="cb40-204"><a href="#cb40-204" aria-hidden="true" tabindex="-1"></a><span class="in">  event.c = etudes_meta1$Control.cases,</span></span>
+<span id="cb40-205"><a href="#cb40-205" aria-hidden="true" tabindex="-1"></a><span class="in">  n.c = etudes_meta1$Control.N,</span></span>
+<span id="cb40-206"><a href="#cb40-206" aria-hidden="true" tabindex="-1"></a><span class="in">  studlab = etudes_meta1$Study,</span></span>
+<span id="cb40-207"><a href="#cb40-207" aria-hidden="true" tabindex="-1"></a><span class="in">  sm = effet,</span></span>
+<span id="cb40-208"><a href="#cb40-208" aria-hidden="true" tabindex="-1"></a><span class="in">  method = methode,</span></span>
+<span id="cb40-209"><a href="#cb40-209" aria-hidden="true" tabindex="-1"></a><span class="in">  random = modele</span></span>
+<span id="cb40-210"><a href="#cb40-210" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb40-211"><a href="#cb40-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-212"><a href="#cb40-212" aria-hidden="true" tabindex="-1"></a><span class="in"># Afficher les résultats</span></span>
+<span id="cb40-213"><a href="#cb40-213" aria-hidden="true" tabindex="-1"></a><span class="in">print(resultat_bin)</span></span>
+<span id="cb40-214"><a href="#cb40-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-215"><a href="#cb40-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-216"><a href="#cb40-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-217"><a href="#cb40-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-218"><a href="#cb40-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-219"><a href="#cb40-219" aria-hidden="true" tabindex="-1"></a>**les patients exposé ont 1.6 fois plus de chances d’avoir l’événement que ceux du groupe contrôle.**</span>
+<span id="cb40-220"><a href="#cb40-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-221"><a href="#cb40-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r meta2}</span></span>
+<span id="cb40-222"><a href="#cb40-222" aria-hidden="true" tabindex="-1"></a><span class="in"># avec metagen</span></span>
+<span id="cb40-223"><a href="#cb40-223" aria-hidden="true" tabindex="-1"></a><span class="in">resultat_gen &lt;- metagen(</span></span>
+<span id="cb40-224"><a href="#cb40-224" aria-hidden="true" tabindex="-1"></a><span class="in">  TE = etudes_meta1$Mean,</span></span>
+<span id="cb40-225"><a href="#cb40-225" aria-hidden="true" tabindex="-1"></a><span class="in">  lower = etudes_meta1$CI.start,</span></span>
+<span id="cb40-226"><a href="#cb40-226" aria-hidden="true" tabindex="-1"></a><span class="in">  upper = etudes_meta1$CI.end,</span></span>
+<span id="cb40-227"><a href="#cb40-227" aria-hidden="true" tabindex="-1"></a><span class="in">  studlab = etudes_meta1$Study,</span></span>
+<span id="cb40-228"><a href="#cb40-228" aria-hidden="true" tabindex="-1"></a><span class="in">  sm = effet,</span></span>
+<span id="cb40-229"><a href="#cb40-229" aria-hidden="true" tabindex="-1"></a><span class="in">  method.tau = "DL",</span></span>
+<span id="cb40-230"><a href="#cb40-230" aria-hidden="true" tabindex="-1"></a><span class="in">  random = modele,</span></span>
+<span id="cb40-231"><a href="#cb40-231" aria-hidden="true" tabindex="-1"></a><span class="in">  log = TRUE  </span></span>
+<span id="cb40-232"><a href="#cb40-232" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb40-233"><a href="#cb40-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-234"><a href="#cb40-234" aria-hidden="true" tabindex="-1"></a><span class="in">print(resultat_gen)</span></span>
+<span id="cb40-235"><a href="#cb40-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-236"><a href="#cb40-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-237"><a href="#cb40-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-238"><a href="#cb40-238" aria-hidden="true" tabindex="-1"></a>**Le groupe exposé a 4 fois plus de risques que le groupe contrôle**</span>
+<span id="cb40-239"><a href="#cb40-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-240"><a href="#cb40-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r verification}</span></span>
+<span id="cb40-241"><a href="#cb40-241" aria-hidden="true" tabindex="-1"></a><span class="in">etudes_meta1 &lt;- etudes_meta1 %&gt;%</span></span>
+<span id="cb40-242"><a href="#cb40-242" aria-hidden="true" tabindex="-1"></a><span class="in">  mutate(</span></span>
+<span id="cb40-243"><a href="#cb40-243" aria-hidden="true" tabindex="-1"></a><span class="in">    Mean_log = log(Mean),</span></span>
+<span id="cb40-244"><a href="#cb40-244" aria-hidden="true" tabindex="-1"></a><span class="in">    CI_start_log = log(CI.start),</span></span>
+<span id="cb40-245"><a href="#cb40-245" aria-hidden="true" tabindex="-1"></a><span class="in">    CI_end_log = log(CI.end)</span></span>
+<span id="cb40-246"><a href="#cb40-246" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="cb40-247"><a href="#cb40-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-248"><a href="#cb40-248" aria-hidden="true" tabindex="-1"></a><span class="in">resultat_gen &lt;- metagen(</span></span>
+<span id="cb40-249"><a href="#cb40-249" aria-hidden="true" tabindex="-1"></a><span class="in">  TE = etudes_meta1$Mean_log,</span></span>
+<span id="cb40-250"><a href="#cb40-250" aria-hidden="true" tabindex="-1"></a><span class="in">  lower = etudes_meta1$CI_start_log,</span></span>
+<span id="cb40-251"><a href="#cb40-251" aria-hidden="true" tabindex="-1"></a><span class="in">  upper = etudes_meta1$CI_end_log,</span></span>
+<span id="cb40-252"><a href="#cb40-252" aria-hidden="true" tabindex="-1"></a><span class="in">  studlab = etudes_meta1$Study,</span></span>
+<span id="cb40-253"><a href="#cb40-253" aria-hidden="true" tabindex="-1"></a><span class="in">  sm = effet,</span></span>
+<span id="cb40-254"><a href="#cb40-254" aria-hidden="true" tabindex="-1"></a><span class="in">  method.tau = "DL",</span></span>
+<span id="cb40-255"><a href="#cb40-255" aria-hidden="true" tabindex="-1"></a><span class="in">  random = modele,</span></span>
+<span id="cb40-256"><a href="#cb40-256" aria-hidden="true" tabindex="-1"></a><span class="in">  log = TRUE</span></span>
+<span id="cb40-257"><a href="#cb40-257" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb40-258"><a href="#cb40-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-259"><a href="#cb40-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-260"><a href="#cb40-260" aria-hidden="true" tabindex="-1"></a><span class="in">print(resultat_gen)</span></span>
+<span id="cb40-261"><a href="#cb40-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-262"><a href="#cb40-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-263"><a href="#cb40-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-264"><a href="#cb40-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-265"><a href="#cb40-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-266"><a href="#cb40-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-267"><a href="#cb40-267" aria-hidden="true" tabindex="-1"></a>**Le groupe exposé a 56% plus de risque d’avoir l’événement par rapport au groupe contrôle**</span>
+<span id="cb40-268"><a href="#cb40-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-269"><a href="#cb40-269" aria-hidden="true" tabindex="-1"></a>**estimation de variation faible**</span>
+<span id="cb40-270"><a href="#cb40-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-271"><a href="#cb40-271" aria-hidden="true" tabindex="-1"></a><span class="in">```{r comparaison metabin metagen}</span></span>
+<span id="cb40-272"><a href="#cb40-272" aria-hidden="true" tabindex="-1"></a><span class="in">comparaison &lt;- tibble::tibble(</span></span>
+<span id="cb40-273"><a href="#cb40-273" aria-hidden="true" tabindex="-1"></a><span class="in">  Méthode = c("metabin", "metagen"),</span></span>
+<span id="cb40-274"><a href="#cb40-274" aria-hidden="true" tabindex="-1"></a><span class="in">  Effet_global = c(resultat_bin$TE.random[1], resultat_gen$TE.random[1]),</span></span>
+<span id="cb40-275"><a href="#cb40-275" aria-hidden="true" tabindex="-1"></a><span class="in">  IC_basse     = c(resultat_bin$lower.random[1], resultat_gen$lower.random[1]),</span></span>
+<span id="cb40-276"><a href="#cb40-276" aria-hidden="true" tabindex="-1"></a><span class="in">  IC_haute     = c(resultat_bin$upper.random[1], resultat_gen$upper.random[1]),</span></span>
+<span id="cb40-277"><a href="#cb40-277" aria-hidden="true" tabindex="-1"></a><span class="in">  p_value      = c(resultat_bin$pval.random[1], resultat_gen$pval[1])</span></span>
+<span id="cb40-278"><a href="#cb40-278" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb40-279"><a href="#cb40-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-280"><a href="#cb40-280" aria-hidden="true" tabindex="-1"></a><span class="in">print(comparaison)</span></span>
+<span id="cb40-281"><a href="#cb40-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-282"><a href="#cb40-282" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-283"><a href="#cb40-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-284"><a href="#cb40-284" aria-hidden="true" tabindex="-1"></a><span class="in">```{r heterogeneite}</span></span>
+<span id="cb40-285"><a href="#cb40-285" aria-hidden="true" tabindex="-1"></a><span class="in">cat("I2 metabin :", resultat_bin$I2, "\n")</span></span>
+<span id="cb40-286"><a href="#cb40-286" aria-hidden="true" tabindex="-1"></a><span class="in">cat("I2 metagen :", resultat_gen$I2, "\n")</span></span>
+<span id="cb40-287"><a href="#cb40-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-288"><a href="#cb40-288" aria-hidden="true" tabindex="-1"></a><span class="in">cat("Tau2 metabin :", resultat_bin$tau2, "\n")</span></span>
+<span id="cb40-289"><a href="#cb40-289" aria-hidden="true" tabindex="-1"></a><span class="in">cat("Tau2 metagen :", resultat_gen$tau2, "\n")</span></span>
+<span id="cb40-290"><a href="#cb40-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-291"><a href="#cb40-291" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-292"><a href="#cb40-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-293"><a href="#cb40-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r plot}</span></span>
+<span id="cb40-294"><a href="#cb40-294" aria-hidden="true" tabindex="-1"></a><span class="in">forest(resultat_gen, sortvar = TE, comb.fixed = FALSE)</span></span>
+<span id="cb40-295"><a href="#cb40-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-296"><a href="#cb40-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-297"><a href="#cb40-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-298"><a href="#cb40-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Transformation}</span></span>
+<span id="cb40-299"><a href="#cb40-299" aria-hidden="true" tabindex="-1"></a><span class="in">meta1_log &lt;- meta1 %&gt;%</span></span>
+<span id="cb40-300"><a href="#cb40-300" aria-hidden="true" tabindex="-1"></a><span class="in">  mutate(</span></span>
+<span id="cb40-301"><a href="#cb40-301" aria-hidden="true" tabindex="-1"></a><span class="in">    Mean_log = log(Mean),</span></span>
+<span id="cb40-302"><a href="#cb40-302" aria-hidden="true" tabindex="-1"></a><span class="in">    CI_start_log = log(CI.start),</span></span>
+<span id="cb40-303"><a href="#cb40-303" aria-hidden="true" tabindex="-1"></a><span class="in">    CI_end_log = log(CI.end)</span></span>
+<span id="cb40-304"><a href="#cb40-304" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="cb40-305"><a href="#cb40-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-306"><a href="#cb40-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-307"><a href="#cb40-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-308"><a href="#cb40-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{r metagen vs meta1}</span></span>
+<span id="cb40-309"><a href="#cb40-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-310"><a href="#cb40-310" aria-hidden="true" tabindex="-1"></a><span class="in"># Comparaison des résultats obtenus metagen vs meta1</span></span>
+<span id="cb40-311"><a href="#cb40-311" aria-hidden="true" tabindex="-1"></a><span class="in">comparaison_resultats &lt;- tibble::tibble(</span></span>
+<span id="cb40-312"><a href="#cb40-312" aria-hidden="true" tabindex="-1"></a><span class="in">  Variable = c(</span></span>
+<span id="cb40-313"><a href="#cb40-313" aria-hidden="true" tabindex="-1"></a><span class="in">    "Effet global (Mean)",</span></span>
+<span id="cb40-314"><a href="#cb40-314" aria-hidden="true" tabindex="-1"></a><span class="in">    "IC 95% - Borne inférieure",</span></span>
+<span id="cb40-315"><a href="#cb40-315" aria-hidden="true" tabindex="-1"></a><span class="in">    "IC 95% - Borne supérieure",</span></span>
+<span id="cb40-316"><a href="#cb40-316" aria-hidden="true" tabindex="-1"></a><span class="in">    "Tau² (Hétérogénéité)",</span></span>
+<span id="cb40-317"><a href="#cb40-317" aria-hidden="true" tabindex="-1"></a><span class="in">    "I² (Hétérogénéité)",</span></span>
+<span id="cb40-318"><a href="#cb40-318" aria-hidden="true" tabindex="-1"></a><span class="in">    "p-value de l’effet",</span></span>
+<span id="cb40-319"><a href="#cb40-319" aria-hidden="true" tabindex="-1"></a><span class="in">    "Z-score"</span></span>
+<span id="cb40-320"><a href="#cb40-320" aria-hidden="true" tabindex="-1"></a><span class="in">  ),</span></span>
+<span id="cb40-321"><a href="#cb40-321" aria-hidden="true" tabindex="-1"></a><span class="in">  Resultat_meta = c(</span></span>
+<span id="cb40-322"><a href="#cb40-322" aria-hidden="true" tabindex="-1"></a><span class="in">    resultat_gen$TE.random[1],       # effet estimé (log)</span></span>
+<span id="cb40-323"><a href="#cb40-323" aria-hidden="true" tabindex="-1"></a><span class="in">    resultat_gen$lower.random[1],    # borne inférieure</span></span>
+<span id="cb40-324"><a href="#cb40-324" aria-hidden="true" tabindex="-1"></a><span class="in">    resultat_gen$upper.random[1],    # borne supérieure</span></span>
+<span id="cb40-325"><a href="#cb40-325" aria-hidden="true" tabindex="-1"></a><span class="in">    resultat_gen$tau2,               # tau² (variance inter-études)</span></span>
+<span id="cb40-326"><a href="#cb40-326" aria-hidden="true" tabindex="-1"></a><span class="in">    resultat_gen$I2,                 # I² (hétérogénéité)</span></span>
+<span id="cb40-327"><a href="#cb40-327" aria-hidden="true" tabindex="-1"></a><span class="in">    resultat_gen$pval.random[1],     # p-value</span></span>
+<span id="cb40-328"><a href="#cb40-328" aria-hidden="true" tabindex="-1"></a><span class="in">    resultat_gen$zval.random[1]      # Z-score</span></span>
+<span id="cb40-329"><a href="#cb40-329" aria-hidden="true" tabindex="-1"></a><span class="in">  ),</span></span>
+<span id="cb40-330"><a href="#cb40-330" aria-hidden="true" tabindex="-1"></a><span class="in">  Resultat_officiel = c(</span></span>
+<span id="cb40-331"><a href="#cb40-331" aria-hidden="true" tabindex="-1"></a><span class="in">    meta1_log$Mean_log,              # Mean log-transformé</span></span>
+<span id="cb40-332"><a href="#cb40-332" aria-hidden="true" tabindex="-1"></a><span class="in">    meta1_log$CI_start_log,          # IC start log</span></span>
+<span id="cb40-333"><a href="#cb40-333" aria-hidden="true" tabindex="-1"></a><span class="in">    meta1_log$CI_end_log,            # IC end log</span></span>
+<span id="cb40-334"><a href="#cb40-334" aria-hidden="true" tabindex="-1"></a><span class="in">    meta1$Heterogeneity.Tau.,        # tau² officiel</span></span>
+<span id="cb40-335"><a href="#cb40-335" aria-hidden="true" tabindex="-1"></a><span class="in">    meta1$Heterogeneity.I.,          # I² officiel</span></span>
+<span id="cb40-336"><a href="#cb40-336" aria-hidden="true" tabindex="-1"></a><span class="in">    meta1$Effect.P,                  # p-value officielle</span></span>
+<span id="cb40-337"><a href="#cb40-337" aria-hidden="true" tabindex="-1"></a><span class="in">    meta1$Effect.Z                   # Z-score officiel</span></span>
+<span id="cb40-338"><a href="#cb40-338" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="cb40-339"><a href="#cb40-339" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb40-340"><a href="#cb40-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-341"><a href="#cb40-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-342"><a href="#cb40-342" aria-hidden="true" tabindex="-1"></a><span class="in">print(comparaison_resultats)</span></span>
+<span id="cb40-343"><a href="#cb40-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-344"><a href="#cb40-344" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-345"><a href="#cb40-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-346"><a href="#cb40-346" aria-hidden="true" tabindex="-1"></a>**On peut remarquer que la reproduction de la meta-analyse concorde avec celle de la base oficielle**</span>
+<span id="cb40-347"><a href="#cb40-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-348"><a href="#cb40-348" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparaison graphique des résultats reproduits</span></span>
+<span id="cb40-349"><a href="#cb40-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-350"><a href="#cb40-350" aria-hidden="true" tabindex="-1"></a>Les figures suivantes comparent les résultats extraits de la base officielle aux résultats que nous avons reproduits pour 10 méta-analyses (via <span class="in">`metagen`</span>).\</span>
+<span id="cb40-351"><a href="#cb40-351" aria-hidden="true" tabindex="-1"></a>Chaque point représente une méta-analyse.\</span>
+<span id="cb40-352"><a href="#cb40-352" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L’axe **X** contient la valeur originale (officielle), - L’axe **Y** contient la valeur reproduite. - La ligne pointillée représente une **égalité parfaite**</span>
+<span id="cb40-353"><a href="#cb40-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-354"><a href="#cb40-354" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Effet global}</span></span>
+<span id="cb40-355"><a href="#cb40-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-356"><a href="#cb40-356" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb40-357"><a href="#cb40-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-358"><a href="#cb40-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-359"><a href="#cb40-359" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(comparaisons, aes(x = Mean_original, y = Mean_reproduit)) +</span></span>
+<span id="cb40-360"><a href="#cb40-360" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb40-361"><a href="#cb40-361" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "plum") +</span></span>
+<span id="cb40-362"><a href="#cb40-362" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb40-363"><a href="#cb40-363" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Comparaison de l'effet global (Mean)",</span></span>
+<span id="cb40-364"><a href="#cb40-364" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Valeur originale (log)",</span></span>
+<span id="cb40-365"><a href="#cb40-365" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Valeur reproduite (log)"</span></span>
+<span id="cb40-366"><a href="#cb40-366" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb40-367"><a href="#cb40-367" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb40-368"><a href="#cb40-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-369"><a href="#cb40-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-370"><a href="#cb40-370" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-371"><a href="#cb40-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-372"><a href="#cb40-372" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Borne inferieure IC 95}</span></span>
+<span id="cb40-373"><a href="#cb40-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-374"><a href="#cb40-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-375"><a href="#cb40-375" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(comparaisons, aes(x = CI_lower_original, y = CI_lower_reproduit)) +</span></span>
+<span id="cb40-376"><a href="#cb40-376" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb40-377"><a href="#cb40-377" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "cyan4") +</span></span>
+<span id="cb40-378"><a href="#cb40-378" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb40-379"><a href="#cb40-379" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Comparaison borne inférieure IC 95%",</span></span>
+<span id="cb40-380"><a href="#cb40-380" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Valeur originale (log)",</span></span>
+<span id="cb40-381"><a href="#cb40-381" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Valeur reproduite (log)"</span></span>
+<span id="cb40-382"><a href="#cb40-382" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb40-383"><a href="#cb40-383" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb40-384"><a href="#cb40-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-385"><a href="#cb40-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-386"><a href="#cb40-386" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-387"><a href="#cb40-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-388"><a href="#cb40-388" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Borne superieure IC 95}</span></span>
+<span id="cb40-389"><a href="#cb40-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-390"><a href="#cb40-390" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(comparaisons, aes(x = CI_upper_original, y = CI_upper_reproduit)) +</span></span>
+<span id="cb40-391"><a href="#cb40-391" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb40-392"><a href="#cb40-392" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "darkorchid") +</span></span>
+<span id="cb40-393"><a href="#cb40-393" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb40-394"><a href="#cb40-394" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Comparaison borne supérieure IC 95%",</span></span>
+<span id="cb40-395"><a href="#cb40-395" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Valeur originale (log)",</span></span>
+<span id="cb40-396"><a href="#cb40-396" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Valeur reproduite (log)"</span></span>
+<span id="cb40-397"><a href="#cb40-397" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb40-398"><a href="#cb40-398" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb40-399"><a href="#cb40-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-400"><a href="#cb40-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-401"><a href="#cb40-401" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-402"><a href="#cb40-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-403"><a href="#cb40-403" aria-hidden="true" tabindex="-1"></a><span class="in">```{r hétérogénéité}</span></span>
+<span id="cb40-404"><a href="#cb40-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-405"><a href="#cb40-405" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(comparaisons, aes(x = I2_original, y = I2_reproduit)) +</span></span>
+<span id="cb40-406"><a href="#cb40-406" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb40-407"><a href="#cb40-407" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "deepskyblue4") +</span></span>
+<span id="cb40-408"><a href="#cb40-408" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb40-409"><a href="#cb40-409" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Comparaison de I² (hétérogénéité)",</span></span>
+<span id="cb40-410"><a href="#cb40-410" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "I² original",</span></span>
+<span id="cb40-411"><a href="#cb40-411" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "I² reproduit"</span></span>
+<span id="cb40-412"><a href="#cb40-412" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb40-413"><a href="#cb40-413" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb40-414"><a href="#cb40-414" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-415"><a href="#cb40-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-416"><a href="#cb40-416" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb40-417"><a href="#cb40-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-418"><a href="#cb40-418" aria-hidden="true" tabindex="-1"></a>La reproduction automatique de plusieurs méta-analyses à partir des données Cochrane a montré une bonne concordance sur les principaux indicateurs (effet global, intervalles de confiance, hétérogénéité).</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
